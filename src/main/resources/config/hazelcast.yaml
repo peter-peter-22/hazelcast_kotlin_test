@@ -1,0 +1,18 @@
+hazelcast:
+  network:
+    join:
+      multicast:
+        enabled: true   # Dev only – use TCP/Kubernetes in production
+  map:
+    books: # This map name matches your @Cacheable("books")
+      in-memory-format: BINARY
+      backup-count: 1   # One synchronous backup for HA
+      # Near-cache configuration (explained below)
+      near-cache:
+        in-memory-format: OBJECT
+        invalidate-on-change: true
+        time-to-live-seconds: 300   # 5 minutes
+        eviction:
+          eviction-policy: LRU
+          max-size-policy: ENTRY_COUNT
+          size: 10000

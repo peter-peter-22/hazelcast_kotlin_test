@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: hazelcast_kotlin_test
+  hazelcast:
+    config: "classpath:config/hazelcast.yaml"
