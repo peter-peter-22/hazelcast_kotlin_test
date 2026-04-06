@@ -26,11 +26,11 @@ repositories {
 }
 
 dependencies {
-    // implementation("org.springframework.boot:spring-boot-starter-hazelcast")
+    // implementation("org.springframework.boot:spring-boot-starter-hazelcast") // unnecessary
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("tools.jackson.module:jackson-module-kotlin")
-    // developmentOnly("org.springframework.boot:spring-boot-devtools") // causes error with hazelcast
+    // developmentOnly("org.springframework.boot:spring-boot-devtools") // causes error "class com.example.hazelcast_kotlin_test.Book cannot be cast to class com.example.hazelcast_kotlin_test.Book" when reading the cache
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     // testImplementation("org.springframework.boot:spring-boot-starter-hazelcast-test")

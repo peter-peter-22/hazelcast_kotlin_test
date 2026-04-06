@@ -8,6 +8,7 @@ class Controllers(
     private val cacheAside: CacheAside,
     private val cacheAsideNear: CacheAsideNear,
     private val hazelcastInstance: HazelcastInstance,
+    private val readThrough: ReadThrough,
 ) {
     private var myCache: CacheAside = cacheAsideNear
 
@@ -48,11 +49,6 @@ class Controllers(
     @GetMapping("/stats")
     fun getStats(): Map<String, Any> {
         val map = hazelcastInstance.getMap<Int, Book>("books_near")
-        map[1]
-        map[1]
-        map[1]
-        map[1]
-
         val nearCacheStats = map.localMapStats.nearCacheStats
         return mapOf(
             "hits" to nearCacheStats.hits,
@@ -62,5 +58,11 @@ class Controllers(
             "ownedEntryCount" to nearCacheStats.ownedEntryCount,
             "distributedCacheEntries" to map.entries.size
         )
+    }
+
+    @GetMapping("/read-through/{id}")
+    fun readThrough(@PathVariable id: Int): Book? {
+        println("Controller: reading book with id: $id")
+        return readThrough.getBook(id)
     }
 }

@@ -28,5 +28,8 @@ POST {{baseUrl}}/set-near-cache/true
 ### disable near cache
 POST {{baseUrl}}/set-near-cache/false
 
-### inspect cache stats
+### inspect the near cache stats
 GET {{baseUrl}}/stats
+
+### read from the mapstore
+GET {{baseUrl}}/read-through/1
