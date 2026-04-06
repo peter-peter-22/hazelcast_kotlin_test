@@ -1,0 +1,8 @@
+* [Hazelcast embedded member config](https://docs.hazelcast.com/hazelcast/5.6/getting-started/get-started-java)
+* [Java client](https://docs.hazelcast.com/hazelcast/5.6/clients/java)
+* [Spring starter package](https://docs.spring.io/spring-boot/reference/io/hazelcast.html)
+* [Github examples](https://github.com/hazelcast/hazelcast-code-samples/blob/master/clients/basic/src/main/java/Client.java)
+* [Spring hazelcast cacheable tutorial](https://docs.hazelcast.com/tutorials/caching-springboot)
+* [Spring built-in cache](https://spring.io/guides/gs/caching)
+* [Hazelcast near cache](https://docs.hazelcast.com/hazelcast/5.6/cluster-performance/near-cache)
+* [Define cache manager](https://docs.hazelcast.com/hazelcast/5.6/spring/add-caching)

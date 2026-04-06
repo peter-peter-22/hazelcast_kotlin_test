@@ -1,0 +1,24 @@
+hazelcast:
+  cluster-name: dev
+  instance-name: myHazelcastInstance
+  network:
+    join:
+      multicast:
+        enabled: true   # Dev only
+
+  map:
+    books_near:
+      # Distributed cache configuration
+      in-memory-format: BINARY # Serialized, standard for distributed cache
+      backup-count: 1   # One synchronous backup for HA
+      # Near-cache configuration
+      near-cache:
+        in-memory-format: OBJECT # Deserialized for faster access, standard for near-cache
+        invalidate-on-change: true # Use invalidation events
+        time-to-live-seconds: 300   # 5 minutes. Must be short and expect the invalidation events to be lost
+        eviction:
+          eviction-policy: LFU # Least-frequently-used
+          max-size-policy: ENTRY_COUNT
+          size: 1000
+        local-update-policy: INVALIDATE # No reads while updating
+        cache-local-entries: true # This allows the near-cache to duplicate the entries from the local embedded member. Dev only.

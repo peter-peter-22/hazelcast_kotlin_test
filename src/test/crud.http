@@ -1,0 +1,32 @@
+@baseUrl=http://localhost:8080
+
+### read book at id 1
+GET {{baseUrl}}/read/1
+
+### write book to id 3
+POST {{baseUrl}}/write
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "Title",
+  "author": "Author"
+}
+
+### read book at id 3
+GET {{baseUrl}}/read/3
+
+### delete book at id 3
+POST {{baseUrl}}/delete/3
+
+### delete all books
+POST {{baseUrl}}/clear
+
+### enable near cache (default=true)
+POST {{baseUrl}}/set-near-cache/true
+
+### disable near cache
+POST {{baseUrl}}/set-near-cache/false
+
+### inspect cache stats
+GET {{baseUrl}}/stats
